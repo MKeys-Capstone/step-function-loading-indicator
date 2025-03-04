@@ -4,25 +4,42 @@
       [(ngModel)]="selectedLoadingIndicator"
       aria-label="Loading Indicator Mode"
     >
-      <mat-button-toggle value="determinate">Determinate</mat-button-toggle>
-      <mat-button-toggle value="indeterminate">Indeterminate</mat-button-toggle>
-      <mat-button-toggle value="spinner">Spinner</mat-button-toggle>
+      <mat-button-toggle value="linear-determinate">Linear-D</mat-button-toggle>
+      <mat-button-toggle value="linear-indeterminate"
+        >Linear-I</mat-button-toggle
+      >
+      <mat-button-toggle value="spinner-indeterminate"
+        >Spinner-I</mat-button-toggle
+      >
+      <mat-button-toggle value="spinner-determinate"
+        >Spinner-D</mat-button-toggle
+      >
     </mat-button-toggle-group>
   </div>
 
-  @switch(selectedLoadingIndicator()){ @case('determinate'){
+  @switch(selectedLoadingIndicator()){ @case('linear-determinate'){
   <app-linear-loading-indicator
     [events]="events()"
     [numberOfEvents]="numberOfEvents()"
     mode="determinate"
   ></app-linear-loading-indicator>
-  } @case('indeterminate'){
+  } @case('linear-indeterminate'){
   <app-linear-loading-indicator
     [events]="events()"
     [numberOfEvents]="numberOfEvents()"
     mode="indeterminate"
   ></app-linear-loading-indicator>
-  } @case('spinner'){
-  <p>Spinner Here</p>
+  } @case('spinner-indeterminate'){
+  <app-spinner-loading-indicator
+    [events]="events()"
+    [numberOfEvents]="numberOfEvents()"
+    mode="indeterminate"
+  ></app-spinner-loading-indicator>
+  }@case('spinner-determinate'){
+  <app-spinner-loading-indicator
+    [events]="events()"
+    [numberOfEvents]="numberOfEvents()"
+    mode="determinate"
+  ></app-spinner-loading-indicator>
   }}
 </div>

@@ -8,11 +8,13 @@ import {
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SpinnerLoadingIndicatorComponent } from './components/spinner-loading-indicator/spinner-loading-indicator.component';
 
 @Component({
   selector: 'app-root',
   imports: [
     LinearLoadingIndicatorComponent,
+    SpinnerLoadingIndicatorComponent,
     MatButtonToggleModule,
     CommonModule,
     FormsModule,
@@ -25,7 +27,8 @@ export class AppComponent implements OnInit {
   events = signal<StepFunctionEvent[]>([]);
   numberOfEvents = signal<number>(2);
   currentEventIndex: number = 0;
-  selectedLoadingIndicator = signal<LoadingIndicatorTypes>('determinate');
+  selectedLoadingIndicator =
+    signal<LoadingIndicatorTypes>('linear-determinate');
 
   constructor() {}
   ngOnInit() {

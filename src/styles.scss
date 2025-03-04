@@ -5,9 +5,14 @@
 :root {
   @include mat.progress-bar-overrides(
     (
-      active-indicator-color: skyblue,
+      active-indicator-color: #3a6ec2,
       active-indicator-height: 1rem,
       track-height: 1rem,
+    )
+  );
+  @include mat.progress-spinner-overrides(
+    (
+      active-indicator-color: #3a6ec2,
     )
   );
 }
