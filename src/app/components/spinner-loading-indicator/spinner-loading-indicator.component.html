@@ -1,5 +1,9 @@
 <div class="container">
-  <mat-progress-spinner [mode]="mode()" [value]="progressPercentage" />
+  <mat-progress-spinner
+    diameter="180"
+    [mode]="mode()"
+    [value]="progressPercentage"
+  />
   <p>Current Task: {{ currentStepName }}</p>
   <p>Step: {{ lastEventType }}</p>
 </div>
