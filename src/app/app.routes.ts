@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { StepFunctionLoadingIndicatorComponent } from './components/step-function-loading-indicator/step-function-loading-indicator.component';
+import { DeterminateLoadingIndicatorComponent } from './components/determinate-loading-indicator/determinate-loading-indicator.component';
 
 export const routes: Routes = [
   // {
   //   path: '',
-  //   component: StepFunctionLoadingIndicatorComponent,
+  //   component: DeterminateLoadingIndicatorComponent,
   // },
 ];

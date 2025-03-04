@@ -1,11 +1,18 @@
 import { Component, OnInit, Signal, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { StepFunctionLoadingIndicatorComponent } from './components/step-function-loading-indicator/step-function-loading-indicator.component';
+import { DeterminateLoadingIndicatorComponent } from './components/determinate-loading-indicator/determinate-loading-indicator.component';
 import { MockEvents, StepFunctionEvent } from './util/constants';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, StepFunctionLoadingIndicatorComponent],
+  imports: [
+    DeterminateLoadingIndicatorComponent,
+    MatButtonToggleModule,
+    CommonModule,
+    FormsModule,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -14,6 +21,9 @@ export class AppComponent implements OnInit {
   events = signal<StepFunctionEvent[]>([]);
   numberOfEvents = signal<number>(2);
   currentEventIndex: number = 0;
+  selectedLoadingIndicator = signal<
+    'determinate' | 'indeterminate' | 'spinner'
+  >('determinate');
 
   constructor() {}
   ngOnInit() {

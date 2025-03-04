@@ -5,12 +5,12 @@ import {
 } from '@angular/material/progress-bar';
 import { StepFunctionEventType, StepFunctionEvent } from '../../util/constants';
 @Component({
-  selector: 'app-step-function-loading-indicator',
+  selector: 'app-determinate-loading-indicator',
   imports: [MatProgressBarModule],
-  templateUrl: './step-function-loading-indicator.component.html',
-  styleUrl: './step-function-loading-indicator.component.scss',
+  templateUrl: './determinate-loading-indicator.component.html',
+  styleUrl: './determinate-loading-indicator.component.scss',
 })
-export class StepFunctionLoadingIndicatorComponent implements OnChanges {
+export class DeterminateLoadingIndicatorComponent implements OnChanges {
   events = input<StepFunctionEvent[]>([]);
   numberOfEvents = input<number>(0);
   lastEventType: StepFunctionEventType;

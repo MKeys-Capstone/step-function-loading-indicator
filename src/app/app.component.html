@@ -1,4 +1,23 @@
-<app-step-function-loading-indicator
-  [events]="events()"
-  [numberOfEvents]="numberOfEvents()"
-></app-step-function-loading-indicator>
+<div class="container">
+  <div class="centered">
+    <mat-button-toggle-group
+      [(ngModel)]="selectedLoadingIndicator"
+      aria-label="Loading Indicator Mode"
+    >
+      <mat-button-toggle value="determinate">Determinate</mat-button-toggle>
+      <mat-button-toggle value="indeterminate">Indeterminate</mat-button-toggle>
+      <mat-button-toggle value="spinner">Spinner</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  @switch(selectedLoadingIndicator()){ @case('determinate'){
+  <app-determinate-loading-indicator
+    [events]="events()"
+    [numberOfEvents]="numberOfEvents()"
+  ></app-determinate-loading-indicator>
+  } @case('indeterminate'){
+  <p>Indeterminate Here</p>
+  } @case('spinner'){
+  <p>Spinner Here</p>
+  }}
+</div>
