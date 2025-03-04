@@ -1,4 +1,8 @@
-<!-- <router-outlet /> -->
+@if(loading()) {
 <app-step-function-loading-indicator
   [events]="events()"
+  [numberOfEvents]="numberOfEvents()"
 ></app-step-function-loading-indicator>
+} @else {
+<p>Loaded Content Here</p>
+}

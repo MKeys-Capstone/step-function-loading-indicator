@@ -12,7 +12,7 @@ export enum StepFunctionEventType {
   StateExited = 'StateExited',
 
   // Step Function Complete
-  ExecutionSucceeded = 'ExecutionSuceeded',
+  ExecutionSucceeded = 'ExecutionSucceeded',
 }
 
 export interface StepFunctionEvent {

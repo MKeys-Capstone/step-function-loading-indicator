@@ -22,9 +22,12 @@ import {
 })
 export class StepFunctionLoadingIndicatorComponent implements OnChanges {
   events = input<StepFunctionEvent[]>([]);
-  statusMessage: StepFunctionEventType;
+  numberOfEvents = input<number>(0);
+  lastEventType: StepFunctionEventType;
   mode: ProgressBarMode = 'determinate';
-  stepName: string = '';
+  currentStepName: string = '';
+  completedSteps: number = 0;
+  progressPercentage: number = 5;
 
   constructor() {}
 
@@ -33,9 +36,17 @@ export class StepFunctionLoadingIndicatorComponent implements OnChanges {
       const events = changes['events'].currentValue;
       if (events.length > 0) {
         const lastEvent = events[0];
-        this.statusMessage = lastEvent.type;
+        this.lastEventType = lastEvent.type;
         if (lastEvent.type === StepFunctionEventType.TaskStateEntered) {
-          this.stepName = lastEvent.stateEnteredEventDetails.name;
+          this.currentStepName = lastEvent.stateEnteredEventDetails.name;
+        }
+        if (lastEvent.type === StepFunctionEventType.TaskSucceeded) {
+          this.completedSteps++;
+          this.progressPercentage =
+            (this.completedSteps / this.numberOfEvents()) * 100 - 10;
+        }
+        if (lastEvent.type === StepFunctionEventType.ExecutionSucceeded) {
+          this.progressPercentage = 100;
         }
       }
     }

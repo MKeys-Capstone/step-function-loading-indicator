@@ -1,5 +1,9 @@
 <div class="container">
-  <mat-progress-bar [mode]="mode" value="80" />
-  <p>Current Task: {{ stepName }}</p>
-  <p>Step: {{ statusMessage }}</p>
+  <mat-progress-bar
+    class="rgb-progress"
+    [mode]="mode"
+    [value]="progressPercentage"
+  />
+  <p>Current Task: {{ currentStepName }}</p>
+  <p>Step: {{ lastEventType }}</p>
 </div>

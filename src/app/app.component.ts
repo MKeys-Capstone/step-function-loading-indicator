@@ -12,7 +12,8 @@ import { MockEvents, StepFunctionEvent } from './util/constants';
 export class AppComponent implements OnInit {
   title = 'step-function-test';
   events = signal<StepFunctionEvent[]>([]);
-
+  numberOfEvents = signal<number>(2);
+  loading = signal<boolean>(true);
   currentEventIndex: number = 0;
 
   constructor() {}
@@ -26,13 +27,11 @@ export class AppComponent implements OnInit {
           ...events,
         ]);
         this.currentEventIndex++;
-
-        console.log('Event added:', MockEvents[this.currentEventIndex - 1]);
       } else {
         // Stop adding events when we've reached the end of MockEvents
         clearInterval(eventInterval);
-        console.log('All events have been added.');
+        this.loading.set(false);
       }
-    }, 2000); // Add a new event every 2 seconds
+    }, 1000); // Add a new event every 2 seconds
   }
 }
