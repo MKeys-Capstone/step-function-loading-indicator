@@ -5,5 +5,5 @@
     [value]="progressPercentage"
   />
   <p>Current Task: {{ currentStepName }}</p>
-  <p>Step: {{ lastEventType }}</p>
+  <p>Step: {{ lastEventType | titleCaseCamel }}</p>
 </div>

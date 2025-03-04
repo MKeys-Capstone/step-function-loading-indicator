@@ -8,9 +8,10 @@ import {
   StepFunctionEvent,
   LoadingIndicatorTypes,
 } from '../../util/constants';
+import { TitleCaseCamelPipe } from '../../title-case-camel.pipe';
 @Component({
   selector: 'app-linear-loading-indicator',
-  imports: [MatProgressBarModule],
+  imports: [MatProgressBarModule, TitleCaseCamelPipe],
   templateUrl: './linear-loading-indicator.component.html',
   styleUrl: './linear-loading-indicator.component.scss',
 })

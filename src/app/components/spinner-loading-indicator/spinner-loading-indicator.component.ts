@@ -4,9 +4,10 @@ import {
   MatProgressSpinnerModule,
   ProgressSpinnerMode,
 } from '@angular/material/progress-spinner';
+import { TitleCaseCamelPipe } from '../../title-case-camel.pipe';
 @Component({
   selector: 'app-spinner-loading-indicator',
-  imports: [MatProgressSpinnerModule],
+  imports: [MatProgressSpinnerModule, TitleCaseCamelPipe],
   templateUrl: './spinner-loading-indicator.component.html',
   styleUrl: './spinner-loading-indicator.component.scss',
 })
