@@ -1,19 +1,9 @@
-import {
-  Component,
-  input,
-  InputSignal,
-  OnChanges,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, input, OnChanges, SimpleChanges } from '@angular/core';
 import {
   ProgressBarMode,
   MatProgressBarModule,
 } from '@angular/material/progress-bar';
-import {
-  StepFunctionEventType,
-  MockEvents,
-  StepFunctionEvent,
-} from '../../util/constants';
+import { StepFunctionEventType, StepFunctionEvent } from '../../util/constants';
 @Component({
   selector: 'app-step-function-loading-indicator',
   imports: [MatProgressBarModule],
@@ -46,6 +36,7 @@ export class StepFunctionLoadingIndicatorComponent implements OnChanges {
             (this.completedSteps / this.numberOfEvents()) * 100 - 10;
         }
         if (lastEvent.type === StepFunctionEventType.ExecutionSucceeded) {
+          this.currentStepName = 'Execution Completed';
           this.progressPercentage = 100;
         }
       }
