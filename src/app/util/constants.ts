@@ -10,6 +10,9 @@ export enum StepFunctionEventType {
   // State transition events for step-level tracking
   StateEntered = 'StateEntered',
   StateExited = 'StateExited',
+
+  // Step Function Complete
+  ExecutionSucceeded = 'ExecutionSuceeded',
 }
 
 export interface StepFunctionEvent {
@@ -18,6 +21,7 @@ export interface StepFunctionEvent {
   stateEnteredEventDetails?: StateEnteredEventDetails; // Only for 'TaskStateEntered'
   taskStartedEventDetails?: TaskStartedEventDetails; // Only for 'TaskStarted'
   taskSucceededEventDetails?: TaskSucceededEventDetails; // Only for 'TaskSucceeded'
+  executionSucceededEventDetails?: ExecutionSucceededEventDetails;
 }
 
 export interface StateEnteredEventDetails {
@@ -33,7 +37,11 @@ export interface TaskSucceededEventDetails {
   output: string; // Output of the task in JSON format
 }
 
-export const MockEvents = [
+export interface ExecutionSucceededEventDetails {
+  output: string; // Output of the task in JSON format
+}
+
+export const MockEvents: StepFunctionEvent[] = [
   {
     timestamp: '2024-03-04T12:00:05Z',
     type: 'TaskStateEntered',
@@ -76,6 +84,13 @@ export const MockEvents = [
     timestamp: '2024-03-04T12:00:30Z',
     type: 'TaskSucceeded',
     taskSucceededEventDetails: {
+      output: '{"result": "success"}',
+    },
+  },
+  {
+    timestamp: '2024-03-04T12:00:30Z',
+    type: 'ExecutionSucceeded',
+    executionSucceededEventDetails: {
       output: '{"result": "success"}',
     },
   },
