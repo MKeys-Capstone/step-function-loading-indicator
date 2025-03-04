@@ -3,18 +3,22 @@ import {
   ProgressBarMode,
   MatProgressBarModule,
 } from '@angular/material/progress-bar';
-import { StepFunctionEventType, StepFunctionEvent } from '../../util/constants';
+import {
+  StepFunctionEventType,
+  StepFunctionEvent,
+  LoadingIndicatorTypes,
+} from '../../util/constants';
 @Component({
-  selector: 'app-determinate-loading-indicator',
+  selector: 'app-linear-loading-indicator',
   imports: [MatProgressBarModule],
-  templateUrl: './determinate-loading-indicator.component.html',
-  styleUrl: './determinate-loading-indicator.component.scss',
+  templateUrl: './linear-loading-indicator.component.html',
+  styleUrl: './linear-loading-indicator.component.scss',
 })
-export class DeterminateLoadingIndicatorComponent implements OnChanges {
+export class LinearLoadingIndicatorComponent implements OnChanges {
   events = input<StepFunctionEvent[]>([]);
   numberOfEvents = input<number>(0);
+  mode = input<ProgressBarMode>('determinate');
   lastEventType: StepFunctionEventType;
-  mode: ProgressBarMode = 'determinate';
   currentStepName: string = '';
   completedSteps: number = 0;
   progressPercentage: number = 5;

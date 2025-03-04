@@ -11,12 +11,17 @@
   </div>
 
   @switch(selectedLoadingIndicator()){ @case('determinate'){
-  <app-determinate-loading-indicator
+  <app-linear-loading-indicator
     [events]="events()"
     [numberOfEvents]="numberOfEvents()"
-  ></app-determinate-loading-indicator>
+    mode="determinate"
+  ></app-linear-loading-indicator>
   } @case('indeterminate'){
-  <p>Indeterminate Here</p>
+  <app-linear-loading-indicator
+    [events]="events()"
+    [numberOfEvents]="numberOfEvents()"
+    mode="indeterminate"
+  ></app-linear-loading-indicator>
   } @case('spinner'){
   <p>Spinner Here</p>
   }}

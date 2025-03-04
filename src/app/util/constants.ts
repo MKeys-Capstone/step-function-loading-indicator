@@ -95,3 +95,5 @@ export const MockEvents: StepFunctionEvent[] = [
     },
   },
 ];
+
+export type LoadingIndicatorTypes = 'determinate' | 'indeterminate' | 'spinner';

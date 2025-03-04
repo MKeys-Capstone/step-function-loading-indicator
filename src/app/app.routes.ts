@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { DeterminateLoadingIndicatorComponent } from './components/determinate-loading-indicator/determinate-loading-indicator.component';
+import { LinearLoadingIndicatorComponent } from './components/linear-loading-indicator/linear-loading-indicator.component';
 
 export const routes: Routes = [
   // {
   //   path: '',
-  //   component: DeterminateLoadingIndicatorComponent,
+  //   component: LinearLoadingIndicatorComponent,
   // },
 ];
