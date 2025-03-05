@@ -24,6 +24,12 @@ export interface StepFunctionEvent {
   executionSucceededEventDetails?: ExecutionSucceededEventDetails;
 }
 
+export type LoadingIndicatorTypes =
+  | 'spinner-indeterminate'
+  | 'spinner-determinate'
+  | 'linear-indeterminate'
+  | 'linear-determinate';
+
 export interface StateEnteredEventDetails {
   name: string; // Name of the step (e.g., 'Step1', 'Step2')
   input?: string; // Input for the task in JSON format, if available
@@ -95,9 +101,3 @@ export const MockEvents: StepFunctionEvent[] = [
     },
   },
 ];
-
-export type LoadingIndicatorTypes =
-  | 'spinner-indeterminate'
-  | 'spinner-determinate'
-  | 'linear-indeterminate'
-  | 'linear-determinate';
